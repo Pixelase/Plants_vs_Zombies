@@ -9,12 +9,12 @@ public class SetTower : MonoBehaviour {
 	private Money mscr; 
 	// Use this for initialization
 	void Start () {
-		mscr = GameObject.Find ("GameLogic").GetComponent<Money> ();
+		mscr = GameObject.Find ("GameLogic").GetComponent<Money>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit, 20))
 		{
@@ -40,4 +40,3 @@ public class SetTower : MonoBehaviour {
 			}
 		}
 	}
-
