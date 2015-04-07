@@ -30,4 +30,8 @@ public class WaveManager : MonoBehaviour {
 			NumOut++;
 		}
 	}
+	public void resetcd()
+	{
+		cd = Cooldown;
+	}
 }
