@@ -4,15 +4,18 @@ using System.Collections;
 public class GameOver : MonoBehaviour
 {
 	public bool lost;
+
 	private Money mscr;
 	private float initMoney;
 	private WaveManager wavscr;
+	private GameObject[] tiles;
 
 	void Start ()
 	{
 		mscr = gameObject.GetComponent<Money>();
 		wavscr = gameObject.GetComponent<WaveManager>();
 		initMoney = mscr.money;
+		tiles = GameObject.FindGameObjectsWithTag("Tile");
 	}
 	
 	// Update is called once per frame
@@ -20,10 +23,18 @@ public class GameOver : MonoBehaviour
 	{
 		if (lost) {
 			lost = false;
-			wavscr.NumOut = 0;
-			wavscr.resetcd();
+			wavscr.wavesCount = 0;
 			GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+			wavscr.CancelInvoke();
+			wavscr.InvokeRepeating("Spawn", wavscr.Cooldown * wavscr.iniPause, wavscr.Cooldown);
+
+			foreach(GameObject tile in tiles)
+			{
+				tile.GetComponent<TileTaken>().isTaken = false;
+			}
+
 			for (int i = 0; i < towers.Length; i++) {
 				Destroy (towers[i]);
 			}
@@ -31,6 +42,8 @@ public class GameOver : MonoBehaviour
 			for (int j = 0; j < enemies.Length; j++) {
 				Destroy (enemies[j]);
 			}
+
+
 
 			GameObject[] projs = GameObject.FindGameObjectsWithTag("Projectile");
 
