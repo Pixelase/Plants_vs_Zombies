@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("Spawn", Cooldown * iniPause, Cooldown);
+		InvokeRepeating("Spawn", iniPause, Cooldown);
 		stopwatch = 0f;
 		enemies = (GameObject[])Enemies.Clone();
 	}
@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour {
 			CancelInvoke();
 
 			//Уменшение задержки спауна врагов с каждой волной
-			if(Cooldown > 0f)
+			if(Cooldown > 0.5f)
 			{
 				Cooldown -= cdDecrement;
 			}
@@ -38,7 +38,7 @@ public class WaveManager : MonoBehaviour {
 			wavesCount++;
 
 			//Новая волна
-			InvokeRepeating("Spawn", Cooldown * iniPause, Cooldown);
+			InvokeRepeating("Spawn", iniPause, Cooldown);
 		}
 	}
 
