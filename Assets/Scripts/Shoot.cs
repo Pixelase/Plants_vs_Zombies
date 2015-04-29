@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
 	public float Cooldown;
 	public GameObject projectile;
 	public bool hasEnemy;
+	public Vector3 projectileOffset;
 
 	private float cd;
 
@@ -27,7 +28,7 @@ public class Shoot : MonoBehaviour
 			if (hit.transform.tag == "Enemy") {	
 				if (cd <= 0 && !gameObject.name.Contains ("Income")) {
 					cd = Cooldown;
-					Instantiate (projectile, transform.position, Quaternion.identity);
+					Instantiate (projectile, transform.position + projectileOffset, Quaternion.identity);
 				}
 				hasEnemy = true;
 
@@ -48,7 +49,7 @@ public class Shoot : MonoBehaviour
 		if (hasEnemy && !gameObject.name.Contains ("Income") && cd <= 0) {
 
 			cd = Cooldown;
-			Instantiate (projectile, transform.position, Quaternion.identity);
+			Instantiate (projectile, transform.position + projectileOffset, Quaternion.identity);
 		}
 
 	}

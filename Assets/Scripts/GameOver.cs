@@ -28,7 +28,8 @@ public class GameOver : MonoBehaviour
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 			wavscr.CancelInvoke();
-			wavscr.InvokeRepeating("Spawn", wavscr.Cooldown * wavscr.iniPause, wavscr.Cooldown);
+			wavscr.Cooldown = 4;
+			wavscr.InvokeRepeating("Spawn", wavscr.iniPause, wavscr.Cooldown);
 
 			foreach(GameObject tile in tiles)
 			{

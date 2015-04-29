@@ -15,7 +15,7 @@ public class TileTaken : MonoBehaviour {
 	{
 		if(Tower != null)
 		{
-			if(Tower.GetComponent<Health>().health <= 0)
+			if(Tower.GetComponent<Health>().health <= 50)
 			{
 				isTaken = false;
 			}
