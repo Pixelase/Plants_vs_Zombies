@@ -27,7 +27,7 @@ public class Shoot : MonoBehaviour
 		if (Physics.Raycast (transform.position, Vector3.right, out hit, 15F)) {
 			if (hit.transform.tag == "Enemy") {	
 				if (cd <= 0 && !gameObject.name.Contains ("Income")) {
-					cd = Cooldown;
+					cd = Cooldown + Random.Range(-0.3F, 0.3F);
 					Instantiate (projectile, transform.position + projectileOffset, Quaternion.identity);
 				}
 				hasEnemy = true;

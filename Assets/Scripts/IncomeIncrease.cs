@@ -13,6 +13,7 @@ public class IncomeIncrease : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mscr = GameObject.Find("GameLogic").GetComponent<Money>();
+		cd = Cooldown + Random.Range(-2, 1);
 	}
 	
 	// Update is called once per frame
@@ -23,7 +24,7 @@ public class IncomeIncrease : MonoBehaviour {
 		}
 		else
 		{
-			cd = Cooldown;
+			cd = Cooldown + Random.Range(-2, 1);
 			mscr.money += income;
 		}
 	
