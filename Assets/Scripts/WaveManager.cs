@@ -12,6 +12,7 @@ public class WaveManager : MonoBehaviour {
 
 	private float stopwatch;
 	private GameObject[] enemies;
+	private Animator anim;
 	
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class WaveManager : MonoBehaviour {
 		InvokeRepeating("Spawn", iniPause, Cooldown);
 		stopwatch = 0f;
 		enemies = (GameObject[])Enemies.Clone();
+		anim = GameObject.Find("WaveText").GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +38,7 @@ public class WaveManager : MonoBehaviour {
 			}
 
 			wavesCount++;
+			anim.SetTrigger("NewWave");
 
 			//Новая волна
 			InvokeRepeating("Spawn", iniPause, Cooldown);
