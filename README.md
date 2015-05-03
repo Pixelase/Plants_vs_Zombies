@@ -7,4 +7,4 @@ Tower Defence
 * The game is based on the Unity 5 engine;
 * The logical model is based global logic of Tower Defence;
 * Gameplay has a similar style as in the game Plants vs Zombies;
-* In the plans, the game will have multiplayer;
+* In the plans, the game will have crossplaform support;
