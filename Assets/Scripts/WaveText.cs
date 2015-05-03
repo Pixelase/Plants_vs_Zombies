@@ -12,8 +12,7 @@ public class WaveText : MonoBehaviour {
 		text = GetComponent <Text> ();
 		wavescr = GameObject.Find("GameLogic").GetComponent<WaveManager>();
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		text.text = "Wave " + (float)(wavescr.wavesCount + 1);
 	}
